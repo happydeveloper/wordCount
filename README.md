@@ -1,4 +1,4 @@
-WordCount.js
+WordCounter.js
 =========
 
 ### 소개
