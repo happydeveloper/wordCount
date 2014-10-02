@@ -1,4 +1,4 @@
-wordsChunk = document.getElementsByTagName('body')[0].innerText.split(' ')
+wordsChunk = document.getElementsByTagName('body')[0].textContent.replace(/\s{2,}/g, '').replace(/\n/g, ' ').split(' ')
 wordSortTable = {};
 for(i = 0; i < wordsChunk.length; i++){
     wordSortTable[wordsChunk[i]] = wordSortTable[wordsChunk[i]] == undefined ? 1 : wordSortTable[wordsChunk[i]]+1;
@@ -9,12 +9,13 @@ for(var name in wordSortTable){
     continue;
    wordSort.push([name, wordSortTable[name]]);
 }
-wordSort.sort(function(a, b) {return a[1] - b[1]})
-//wordSort = wordSort.splice(0,200);
+wordSort.sort(function(a, b) {return a[1] - b[1]});
+wordSort = wordSort.slice(-100);
 str = '';
 for(var i = 0; i < wordSort.length; i++){
-    str += wordSort[i][1] +"\t"+ wordSort[i][0].replace(/\n/g, "") + "\n"
+    str += wordSort[i][1] +"\t"+ wordSort[i][0] + "\n"
 }
 console.log(str);
-console.log("%cWord Counter", "text-shadow: -0.06em 0 red, 0.06em 0 cyan; font-size:50px");
-console.log('by 서툰 영어의 시대');
+console.log("%cWordCounter.js", "text-shadow: -0.06em 0 red, 0.06em 0 cyan; font-size:50px");
+console.log('by 서툰 영어의 시대 (http://opentutorials.org/module/1058)');
+
