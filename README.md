@@ -1,4 +1,4 @@
-wordCount
+WordCount.js
 =========
 
-wordCounter  웹페이지
+
